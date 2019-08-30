@@ -1,4 +1,4 @@
-import math
+﻿import math
 import parser
 
 print("Welcome to Trig Function Calculator by VKHSD")
@@ -251,38 +251,87 @@ while True:
             import math
             formula = input()
             code = parser.expr(formula).compile()
-            x = float(input("Find limit around ?"))
+            x = float(input("Find limit around? "))
             xsave = x
             try:
                 import math
-                from math import sin
                 print(f"lim   f(x) = {eval(code)}")
                 print(f"x→{int(x)}")
-            except ZeroDivisionError:
-                print("Undefined")
-                import math
-                from math import sin
                 x = xsave - 0.1
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
+                xa = eval(code)
                 x = xsave - 0.01
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
+                xb = eval(code)
                 x = xsave - 0.001
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
                 try:
                     import math
-                    from math import sin
+                    xc = eval(code)
                     x = xsave
-                    print(f"{eval(code)}")
+                    print(f"{x}, {eval(code)}")
                 except ZeroDivisionError:
-                    print("Undefined")
+                    print(f"{int(x)}, Undefined")
                 import math
-                from math import sin
                 x = xsave + 0.001
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
+                xe = eval(code)
                 x = xsave + 0.01
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
+                xf = eval(code)
                 x = xsave + 0.1
-                print(f"{eval(code)}")
+                print(f"{x}, {eval(code)}")
+                xg = eval(code)
+                if xa > xb > xc and xe > xf > xg:
+                  print(f"lim   f(x) = -inf")
+                  print(f"x→{int(x)}-")
+                  print(f"lim   f(x) = inf")
+                  print(f"x→{int(x)}+")
+
+            except ZeroDivisionError:
+                print(f"lim   f(x) = Undefined")
+                print(f"x→{int(x)}")
+                import math
+                x = xsave - 0.1
+                print(f"{x}, {eval(code)}")
+                xa = eval(code)
+                x = xsave - 0.01
+                print(f"{x}, {eval(code)}")
+                xb = eval(code)
+                x = xsave - 0.001
+                print(f"{x}, {eval(code)}")
+                xc = eval(code)
+                try:
+                    import math
+                    x = xsave
+                    print(f"{x}, {eval(code)}")
+                except ZeroDivisionError:
+                    print(f"{int(x)}, Undefined")
+                import math
+                x = xsave + 0.001
+                print(f"{x}, {eval(code)}")
+                xe = eval(code)
+                x = xsave + 0.01
+                print(f"{x}, {eval(code)}")
+                xf = eval(code)
+                x = xsave + 0.1
+                print(f"{x}, {eval(code)}")
+                xg = eval(code)
+                if xa > xb > xc and xe > xf > xg:
+                  print(f"lim   f(x) = -inf")
+                  print(f"x→{int(x)}-")
+                  print(f"lim   f(x) = inf")
+                  print(f"x→{int(x)}+")
+                if xa > xb > xc and xe < xf < xg:
+                  print(f"lim   f(x) = -inf")
+                  print(f"x→{int(x)}-")
+                  print(f"lim   f(x) = -inf")
+                  print(f"x→{int(x)}+")
+                if xa < xb < xc and xe > xf > xg:
+                  print(f"lim   f(x) = inf")
+                  print(f"x→{int(x)}-")
+                  print(f"lim   f(x) = inf")
+                  print(f"x→{int(x)}+")
         except SyntaxError:
             print("Typed wrong")
 
