@@ -246,21 +246,45 @@ while True:
             print(f'{round((deg * math.pi) / 180)}')
 
     if func1 == "lim":
-        while True:
-            print(f"NOTATE ^ AS ** AND SHOW ALL MULTIPLICATION SPOTS SUCH AS (X)Y AS (X)*Y")
+        print(f"NOTATE ^ AS ** AND SHOW ALL MULTIPLICATION SPOTS SUCH AS (X)Y AS (X)*Y")
+        try:
+            import math
             formula = input()
+            code = parser.expr(formula).compile()
+            x = float(input("Find limit around ?"))
+            xsave = x
             try:
-                code = parser.expr(formula).compile()
-            except SyntaxError:
-                print("Notation may have not have been in correct format")
                 import math
-                x = float(input("Find limit around ?"))
+                from math import sin
+                print(f"lim   f(x) = {eval(code)}")
+                print(f"x→{int(x)}")
+            except ZeroDivisionError:
+                print("Undefined")
+                import math
+                from math import sin
+                x = xsave - 0.1
+                print(f"{eval(code)}")
+                x = xsave - 0.01
+                print(f"{eval(code)}")
+                x = xsave - 0.001
+                print(f"{eval(code)}")
                 try:
-                    print(f" lim   f(x) = {eval(code)}")
-                    print(f"x->{x}")
-                    break
+                    import math
+                    from math import sin
+                    x = xsave
+                    print(f"{eval(code)}")
                 except ZeroDivisionError:
                     print("Undefined")
+                import math
+                from math import sin
+                x = xsave + 0.001
+                print(f"{eval(code)}")
+                x = xsave + 0.01
+                print(f"{eval(code)}")
+                x = xsave + 0.1
+                print(f"{eval(code)}")
+        except SyntaxError:
+            print("Typed wrong")
 
     if func1 not in departments:
         print(f"{func1} is either mistyped or not a feature yet. thank you for using trigonometry calculator by VKHSD")
